@@ -20,19 +20,24 @@ if (!firebase.apps.length) {
 }
 
 const Enroll = () => {
+
+
+
+  
   const contactFormDB = firebase.database().ref("Students");
   const temp2 = firebase.database().ref("temp");
   const temp3 = firebase.database().ref("State");
+  var temp4=0;
 
   const submitForm = (e) => {
     e.preventDefault();
 
-    const name = getElementVal("name");
-    const emailid = getElementVal("email");
-    const roll = getElementVal("rollNo");
+    var name = getElementVal("name");
+    var uid = getElementVal("uid");
+    var roll = getElementVal("roll");
 
-    saveMessages(name, emailid, roll);
-    temp2.set(Number(roll));
+    saveMessages(uid,name, uid, roll,temp4);
+    temp2.set(Number(uid));
     temp3.set(1);
 
     //  enable alert
@@ -46,14 +51,14 @@ const Enroll = () => {
 
   };
 
-  const saveMessages = (name, emailid, roll) => {
-    const newContactForm = contactFormDB.push();
-
-    newContactForm.set({
+  const saveMessages = (id,name, roll, uid,temp4) => {
+    firebase.database().ref('Students/' + id).set({
       name: name,
-      emailid: emailid,
-      msgContent: roll,
+      roll: roll,
+      uniqueID : uid,
+      Classcount: temp4
     });
+    firebase.database().ref('AttendanceRecord/' + id).set(temp4);
   };
 
   const getElementVal = (id) => {
@@ -76,7 +81,7 @@ const Enroll = () => {
           STUSEC
         </h2>
         <h4 className="text-2xl text-yellow-50 font-bold text-center pb-10">
-          Enrollment of Student
+          Enrolment of Student
         </h4>
 
         <div>
@@ -100,12 +105,12 @@ const Enroll = () => {
             </div>
 
             <div className="flex flex-col text-gray-400 py-2">
-              <label htmlFor="email">Student Email ID:</label>
+              <label htmlFor="email">Unique ID:</label>
               <input
                 className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
-                type="text"
-                id="email"
-                placeholder="Your Email ID"
+                type="number"
+                id="uid"
+                placeholder="Your Unique ID"
               />
             </div>
 
@@ -114,13 +119,13 @@ const Enroll = () => {
               <input
                 className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
                 type="text"
-                id="rollNo"
+                id="roll"
                 placeholder="Your Roll No."
               />
             </div>
 
-            <div className="w-20 my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg text-center flex items-center justify-center">
-              <button type="submit">Enroll</button>
+            <div className="w-20 my-5 py-2 bg-teal-500 hover:bg-teal-700 text-white font-semibold rounded-lg text-center flex items-center justify-center">
+              <button type="submit">Enrol</button>
             </div>
           </form>
         </div>

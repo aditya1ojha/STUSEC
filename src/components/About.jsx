@@ -9,7 +9,7 @@ const About = () => {
             </div>
 
             <p className='flex text-xl mt-20'>
-            Welcome to STUSEC - Your Biometric Attendance Tracker for Students!
+            Welcome to STUSEC - Jorhat Engineering College's own Biometric Attendance Tracker for Students!
             <br/>
             <br/>
             At STUSEC, we understand the importance of tracking attendance efficiently and accurately in educational institutions. With our innovative web application, we provide a convenient and reliable solution for managing student attendance using biometric technology. STUSEC aims to streamline attendance monitoring, enhance student accountability, and simplify administrative tasks for educational institutions of all sizes.
