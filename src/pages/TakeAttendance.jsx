@@ -110,8 +110,8 @@ const TakeAttendance = () => {
             <tr className="text-2xl content-center font-bold">
               {/* <th className="px-20 py-10">S NO</th> */}
               <th className="px-20 py-10">NAME</th>
-              <th className="px-20 py-10">ROLL NO</th>
               <th className="px-20 py-10">ID</th>
+              <th className="px-20 py-10">ROLL NO</th>
             </tr>
           </thead>
           <tbody>

@@ -60,8 +60,8 @@ const Enrolled = () => {
     <thead>
         <tr class="text-2xl content-center font-bold">
             <td class="px-20 py-10">NAME</td>
-            <td class="px-20 py-10">ID</td>
             <td class="px-20 py-10">ROLL NO</td>
+            <td class="px-20 py-10">ID</td>
             <td class="px-20 py-10">CLASSES ATTENDED</td>
         </tr>
     </thead>`;
